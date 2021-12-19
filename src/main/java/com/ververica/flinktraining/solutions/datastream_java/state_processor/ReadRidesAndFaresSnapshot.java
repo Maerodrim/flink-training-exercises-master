@@ -16,8 +16,6 @@
 
 package com.ververica.flinktraining.solutions.datastream_java.state_processor;
 
-import com.ververica.flinktraining.exercises.datastream_java.datatypes.TaxiFare;
-import com.ververica.flinktraining.exercises.datastream_java.datatypes.TaxiRide;
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.java.DataSet;
@@ -29,6 +27,9 @@ import org.apache.flink.state.api.ExistingSavepoint;
 import org.apache.flink.state.api.Savepoint;
 import org.apache.flink.state.api.functions.KeyedStateReaderFunction;
 import org.apache.flink.util.Collector;
+
+import com.ververica.flinktraining.exercises.datastream_java.datatypes.TaxiFare;
+import com.ververica.flinktraining.exercises.datastream_java.datatypes.TaxiRide;
 
 public class ReadRidesAndFaresSnapshot {
 	static class ReadRidesAndFares extends KeyedStateReaderFunction<Long, Tuple2<TaxiRide, TaxiFare>> {
@@ -58,7 +59,7 @@ public class ReadRidesAndFaresSnapshot {
 		/***************************************************************************************
 		 Update this path to point to a checkpoint or savepoint from RidesAndFaresSolution.java
 		 ***************************************************************************************/
-		String pathToSnapshot = "file:///tmp/checkpoints/d026157cec94402dd98c6be51d4db8ca/chk-2";
+		String pathToSnapshot = "file:///tmp/checkpoints/12529c8286f3bb9721dbd7076832ff06/chk-5";
 
 		ExistingSavepoint sp = Savepoint.load(bEnv, pathToSnapshot, backend);
 
